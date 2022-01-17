@@ -1,4 +1,5 @@
 #include <iostream>
+
 int FindLen(const char* _Text)
 {
 	int Len = 0;
@@ -11,7 +12,7 @@ int FindLen(const char* _Text)
 }
 
 //전체 텍스트,시작 위치,찾을 텍스트
-int CountFirst(const char* _Text,int _Start,const char* _FindStr)
+int CountFirst(const char* _Text, int _Start, const char* _FindStr)
 {
 	//전체 텍스트 길이
 	//"aaa eee ttt asdfasd" 
@@ -27,15 +28,15 @@ int CountFirst(const char* _Text,int _Start,const char* _FindStr)
 
 	for (int i = _Start; i < Count; i += 1)
 	{
-		int flag = 0;
+		int count = 0;
 		for (int j = 0; j < Search_Text_Len; j += 1)
 		{
-			if (_Text[i + j] != _FindStr[j])
+			if (_Text[i + j] == _FindStr[j])
 			{
-				flag = 1;
+				count += 1;
 			}
 		}
-		if (0==flag)
+		if (count == Search_Text_Len)
 		{
 			return i;
 		}
@@ -46,7 +47,7 @@ int main()
 {
 	//숫자세기
 	//const char* _FindStr 찾기
-	
-	int Count = CountFirst("aaa ttt eee asdfasd", 0, "eee");
+
+	int Count = CountFirst("aaa", 0, "aaaa");
 	//int Count = CountFirst("aaa bbb cc dfasd eee ttt asdfasd", 50, "eee");
 }
