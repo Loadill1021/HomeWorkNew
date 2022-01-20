@@ -40,5 +40,5 @@ int CountEnd(const char* _Text, int _End, const char* _FindStr)
 }
 int main()
 {
-	int Count = CountEnd("aaa ttt eee asdfasd", 50, "asdfasd");
+	int Count = CountEnd("aaa ttt eee asdfad", 50, "asdfasd");
 }

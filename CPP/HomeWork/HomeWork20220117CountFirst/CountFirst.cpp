@@ -48,6 +48,6 @@ int main()
 	//숫자세기
 	//const char* _FindStr 찾기
 
-	int Count = CountFirst("aaa", 0, "aaaa");
+	int Count = CountFirst("fghjhgjfgjaaaa bbb ccccaaaafghshhs", 0, "aaaa");
 	//int Count = CountFirst("aaa bbb cc dfasd eee ttt asdfasd", 50, "eee");
 }
