@@ -2,6 +2,30 @@
 
 #include <iostream>
 
+//바이트 패딩 Byte padding
+//블로그 검색
+//클래스내 가장 큰 바이트 수로 
+//2 4 8
+class Test1
+{
+    char v1;
+    int V2;
+    char V3;
+    char V4;
+    __int64 V5;
+    char V6;
+};
+
+class Test2
+{
+    char v1;
+    int V2;
+    char V3;
+    char V4;
+    __int64 V5;
+    char V6;
+};
+
 class Player
 {
 public:
