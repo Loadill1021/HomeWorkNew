@@ -21,14 +21,20 @@ MyInt::MyInt(int _Value)
 }
 MyInt MyInt::operator--(int )
 {
-	return MyInt(this->Value -1);
+	//현재 내 값의 복사본을 생성
+	MyInt temp = *this;
+	//현재 내 값을 감소
+	this->Value -= 1;
+	//감소 시키전 내 값을 반환
+	return temp;
 }
 int main()
 {
 	int a = 0;
 	int b=a--;
 	MyInt myInt = MyInt();
-	MyInt myInt2=myInt--;
+	MyInt myInt2 = myInt--;
+
 	
 	
 	
