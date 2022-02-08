@@ -20,6 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Users\Dkqjs\OneDrive\바탕 화면\2022.02.08.png" />
+    <Image Include="..\..\..\..\Users\Dkqjs\OneDrive\바탕 화면\2022.0208.2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TextScreen.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConsoleScreen.cpp" />
+    <ClCompile Include="TextScreen.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
