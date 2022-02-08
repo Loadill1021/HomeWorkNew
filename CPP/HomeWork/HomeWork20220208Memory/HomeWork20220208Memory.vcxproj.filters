@@ -7,12 +7,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Users\Dkqjs\OneDrive\바탕 화면\2022.02.08.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Users\Dkqjs\OneDrive\바탕 화면\2022.0208.2.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
+    <Image Include="..\..\..\..\Users\Dkqjs\OneDrive\바탕 화면\2022.02.08.png" />
+    <Image Include="..\..\..\..\Users\Dkqjs\OneDrive\바탕 화면\2022.0208.2.png" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextScreen.h">
