@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{c2fe2212-99d0-4289-a91e-6e7533f07aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{c22e7757-127b-4902-83df-f2818285fac0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
