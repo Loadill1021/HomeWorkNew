@@ -6,6 +6,8 @@ class Player
 {
 public:
 	// constrcuter destructer
+	Player(int _y, int _x, const char* _Text);
+	Player(ConsoleVector _Pos, const char* _Text);
 	Player(TextScreen* _Screen, const char* _Text);
 	~Player();
 

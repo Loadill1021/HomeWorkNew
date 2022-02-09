@@ -49,6 +49,7 @@ void TextScreen::SettingScreen()
 }
 void TextScreen::PrintScreen()
 {
+	//이전까지의 콘솔창의 내용을 전부 지워준다.
 	system("cls");
 	for (int y = 0; y < Size_.y_; y++)
 	{

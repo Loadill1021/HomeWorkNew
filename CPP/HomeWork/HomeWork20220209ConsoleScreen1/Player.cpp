@@ -1,5 +1,15 @@
 #include "Player.h"
 #include <conio.h>
+Player::Player(int _y, int _x, const char* _Text)
+	:Screen_(nullptr),Pos_(_x,_y),Text_()
+{
+
+}
+Player::Player(ConsoleVector _Pos, const char* _Text)
+	:Screen_(nullptr),Pos_(_Pos), Text_()
+{
+
+}
 Player::Player(TextScreen* _Screen, const char* _Text)
 	:Screen_(_Screen)
 	, Pos_(_Screen->GetSize().GetHalfVector())
@@ -51,7 +61,5 @@ void Player::Update()
 	default:
 		break;
 	}
-
-
 }
 

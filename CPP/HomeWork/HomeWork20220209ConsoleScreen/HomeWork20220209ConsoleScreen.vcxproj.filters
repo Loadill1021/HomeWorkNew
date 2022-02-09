@@ -8,4 +8,29 @@
       <UniqueIdentifier>{c22e7757-127b-4902-83df-f2818285fac0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\HomeWork20220209ConsoleScreen1\ConsoleMath.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HomeWork20220209ConsoleScreen1\ConsoleScreen.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HomeWork20220209ConsoleScreen1\Player.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HomeWork20220209ConsoleScreen1\TextScreen.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\HomeWork20220209ConsoleScreen1\ConsoleMath.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\HomeWork20220209ConsoleScreen1\Player.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\HomeWork20220209ConsoleScreen1\TextScreen.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
