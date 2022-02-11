@@ -16,9 +16,12 @@ public:
 	//static TextScreen MainScreen;
 	//static Monster* AllMonsters;
 	//static Player MainPlayer;
+	TextScreen MainScreen;
+	Monster* AllMonsters;
+	Player MainPlayer;
 };
 
-//extern GlobalValue Inst;
+extern GlobalValue Inst;
 
 
 //class ConsoleGloballInst

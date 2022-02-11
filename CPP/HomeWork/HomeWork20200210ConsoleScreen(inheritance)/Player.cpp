@@ -26,7 +26,7 @@ void Player::Update()
 	case 'A':
 		if (isWall({ -1, 0 }))
 		{
-			SetPos({ 0, 0 });
+			//SetPos({ 0, 0 });
 			break;
 		}
 		SetMove({ -1, 0 });
@@ -35,7 +35,7 @@ void Player::Update()
 	case 'S':
 		if (isWall({ 0,+1 }))
 		{
-			SetPos({ 0, 0 });
+			//SetPos({ 0, 0 });
 			break;
 		}
 		SetMove({ 0,+1 });
@@ -44,7 +44,7 @@ void Player::Update()
 	case 'D':
 		if (isWall({ +1,0 }))
 		{
-			SetPos({ 0, 0 });
+			//SetPos({ 0, 0 });
 			break;
 		}
 		SetMove({ +1,0 });
@@ -53,7 +53,7 @@ void Player::Update()
 	case 'W':
 		if (isWall({ 0,-1 }))
 		{
-			SetPos({ 0, 0 });
+			//SetPos({ 0, 0 });
 			break;
 		}
 		SetMove({ 0,-1 });

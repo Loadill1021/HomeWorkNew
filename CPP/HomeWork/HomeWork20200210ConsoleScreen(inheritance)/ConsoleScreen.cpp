@@ -1,6 +1,6 @@
 #include <iostream>
-#include "TextScreen.h"
-#include "ConsoleObject.h"
+//#include "TextScreen.h"
+//#include "ConsoleObject.h"
 //#include "Player.h"
 #include <crtdbg.h>
 //#include "Monster.h"
