@@ -12,9 +12,13 @@ ConsoleObject::ConsoleObject(
 	{
 		assert(false);
 	}*/
-	if (nullptr == _Text)
+	/*if (nullptr == _Text)
 	{
 		assert(false);
+	}*/
+	if (nullptr == _Text)
+	{
+		return;
 	}
 	for (int i = 0; i < 3; ++i)
 	{
