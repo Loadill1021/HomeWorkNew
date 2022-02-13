@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork20220209ConsoleScre
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork20200210ConsoleScreen(inheritance)", "HomeWork20200210ConsoleScreen(inheritance)\HomeWork20200210ConsoleScreen(inheritance).vcxproj", "{D112BB8F-2CE0-49A8-A543-E6BDB2302F73}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork20220211Operator()()", "HomeWork20220211Operator()()\HomeWork20220211Operator()().vcxproj", "{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -103,6 +105,14 @@ Global
 		{D112BB8F-2CE0-49A8-A543-E6BDB2302F73}.Release|x64.Build.0 = Release|x64
 		{D112BB8F-2CE0-49A8-A543-E6BDB2302F73}.Release|x86.ActiveCfg = Release|Win32
 		{D112BB8F-2CE0-49A8-A543-E6BDB2302F73}.Release|x86.Build.0 = Release|Win32
+		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Debug|x64.ActiveCfg = Debug|x64
+		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Debug|x64.Build.0 = Debug|x64
+		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Debug|x86.ActiveCfg = Debug|Win32
+		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Debug|x86.Build.0 = Debug|Win32
+		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Release|x64.ActiveCfg = Release|x64
+		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Release|x64.Build.0 = Release|x64
+		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Release|x86.ActiveCfg = Release|Win32
+		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +126,7 @@ Global
 		{676655C6-386C-4CB9-A05B-68901DAA3ECB} = {02C79B2C-2851-46A3-8939-C5A940591422}
 		{A028F7D7-8AD2-4EEF-BB0B-85E85443B13C} = {02C79B2C-2851-46A3-8939-C5A940591422}
 		{FB5E8E91-4B60-4548-A800-C7EF49AC67CE} = {02C79B2C-2851-46A3-8939-C5A940591422}
+		{D112BB8F-2CE0-49A8-A543-E6BDB2302F73} = {02C79B2C-2851-46A3-8939-C5A940591422}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69D21FDB-ED7D-46A4-8571-40D63C1D81A1}
