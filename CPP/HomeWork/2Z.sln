@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork20200210ConsoleScre
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork20220211Operator()()", "HomeWork20220211Operator()()\HomeWork20220211Operator()().vcxproj", "{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork20220216GameArray", "HomeWork20220216GameArray\HomeWork20220216GameArray.vcxproj", "{65F2F25A-1D06-413E-A619-66F534197355}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -113,6 +115,14 @@ Global
 		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Release|x64.Build.0 = Release|x64
 		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Release|x86.ActiveCfg = Release|Win32
 		{3F7F5D7C-917D-4BD8-932B-0F57DFD66940}.Release|x86.Build.0 = Release|Win32
+		{65F2F25A-1D06-413E-A619-66F534197355}.Debug|x64.ActiveCfg = Debug|x64
+		{65F2F25A-1D06-413E-A619-66F534197355}.Debug|x64.Build.0 = Debug|x64
+		{65F2F25A-1D06-413E-A619-66F534197355}.Debug|x86.ActiveCfg = Debug|Win32
+		{65F2F25A-1D06-413E-A619-66F534197355}.Debug|x86.Build.0 = Debug|Win32
+		{65F2F25A-1D06-413E-A619-66F534197355}.Release|x64.ActiveCfg = Release|x64
+		{65F2F25A-1D06-413E-A619-66F534197355}.Release|x64.Build.0 = Release|x64
+		{65F2F25A-1D06-413E-A619-66F534197355}.Release|x86.ActiveCfg = Release|Win32
+		{65F2F25A-1D06-413E-A619-66F534197355}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
