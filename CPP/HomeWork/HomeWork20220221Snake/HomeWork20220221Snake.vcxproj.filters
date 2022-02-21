@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Body.cpp" />
+    <ClCompile Include="GameBlock.cpp" />
+    <ClCompile Include="GlobalGameLogic.cpp" />
+    <ClCompile Include="Head.cpp" />
+    <ClCompile Include="Engine\ConsoleMath.cpp" />
+    <ClCompile Include="Engine\ConsoleObject.cpp" />
+    <ClCompile Include="Engine\ConsoleRandom.cpp" />
+    <ClCompile Include="Engine\ConsoleScreen.cpp" />
+    <ClCompile Include="Snake.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Body.h" />
+    <ClInclude Include="GameBlock.h" />
+    <ClInclude Include="GlobalGameLogic.h" />
+    <ClInclude Include="Head.h" />
+    <ClInclude Include="Engine\ConsoleMath.h" />
+    <ClInclude Include="Engine\ConsoleObject.h" />
+    <ClInclude Include="Engine\ConsoleRandom.h" />
+    <ClInclude Include="Engine\ConsoleScreen.h" />
+  </ItemGroup>
+</Project>

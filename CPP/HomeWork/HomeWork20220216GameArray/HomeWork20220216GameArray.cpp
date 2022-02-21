@@ -81,6 +81,7 @@ public:
         //작아질수도 있고 커질수도 있다. 원하는대로 해결
         //기존의 데이터를 보존하고
         
+        //큰쪽기준
         if (this->Size_ >= _Size)
         {
             return;
@@ -129,24 +130,23 @@ int main()
     //GameArray NewArray = GameArray(10);
     //GameArray NewArray2 = GameArray(10);
 
-    GameArray NewArray = GameArray(10);
-    GameArray NewArray2 = GameArray(20);
-    for (size_t i = 0; i < NewArray2.GetSize(); i++)
-    {
-        NewArray2[i] = i;
-    }
-    NewArray.AllValueSetting(3);
-    NewArray2.AllValueSetting(1);
+    GameArray NewArray = GameArray(2);
+    GameArray NewArray2 = GameArray(5);
+    
+    NewArray.AllValueSetting(0);
+    //NewArray2.AllValueSetting(1);
     NewArray2 = NewArray;
-
-
-    NewArray2.AllValueSetting(1);
-    NewArray2.ReSize(21);
-
+    NewArray2.ReSize(1);
     for (size_t i = 0; i < NewArray2.GetSize(); i++)
     {
         std::cout << NewArray2[i] << std::endl;
     }
+  /* NewArray2.ReSize(23);
+
+    for (size_t i = 0; i < NewArray2.GetSize(); i++)
+    {
+        std::cout << NewArray2[i] << std::endl;
+    }*/
 
     std::cout << "Hello World!\n";
 }
