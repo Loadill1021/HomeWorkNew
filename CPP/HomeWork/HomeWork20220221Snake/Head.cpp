@@ -1,6 +1,6 @@
 #include "Head.h"
 #include <conio.h>
-
+#include "Body.h"
 Head::Head() 
 {
 }

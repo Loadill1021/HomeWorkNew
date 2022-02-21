@@ -8,7 +8,7 @@ class Head : public GameBlock
 public:
 	// constrcuter destructer
 	Head();
-	~Head();
+	~Head()override;
 
 	// delete Function
 	Head(const Head& _Other) = delete;
