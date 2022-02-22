@@ -3,7 +3,7 @@
 #include <assert.h>
 
 // ValueÇü ½Ì±ÛÅæ
-//ConsoleScreen ConsoleScreen::MainScreen;
+ConsoleScreen ConsoleScreen::MainScreen;
 //ConsoleScreen& ConsoleScreen::GetInst() {
 //	return MainScreen;
 //}

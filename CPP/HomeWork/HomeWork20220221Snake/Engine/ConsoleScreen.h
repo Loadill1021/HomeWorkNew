@@ -13,7 +13,7 @@
 // ¼³¸í :
 class ConsoleScreen
 {
-//  static ConsoleScreen MainScreen;
+  static ConsoleScreen MainScreen;
 
 	//  ValueÇü ½Ì±ÛÅæ
 //private:
