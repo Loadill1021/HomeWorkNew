@@ -1,52 +1,64 @@
 #include "GameEngineWindow.h"
-
+#include "./GameEngineDebug.h"
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    return DefWindowProc(hWnd, message, wParam, lParam);
+	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
 GameEngineWindow* GameEngineWindow::Inst_ = new GameEngineWindow();
 GameEngineWindow::GameEngineWindow()
+	: hInst_(nullptr),
+	hWnd_(nullptr)
 {
 }
 
-GameEngineWindow::~GameEngineWindow() 
+GameEngineWindow::~GameEngineWindow()
 {
 }
-void GameEngineWindow::CreateGameWindow(HINSTANCE _hInst)
+void GameEngineWindow::RegClass(HINSTANCE _hInst)
 {
-    WNDCLASSEXW wcex;
+	WNDCLASSEXA wcex;
 
-    wcex.cbSize = sizeof(WNDCLASSEXW);
+	wcex.cbSize = sizeof(WNDCLASSEXW);
 
-    wcex.style = CS_HREDRAW | CS_VREDRAW;
-    //wcex.style =(UINT) 5;
-    wcex.lpfnWndProc = WndProc;
-    wcex.cbClsExtra = 0;
-    wcex.cbWndExtra = 0;
-    wcex.hInstance = _hInst;
-    wcex.hIcon = nullptr;
-    wcex.hCursor = LoadCursor(nullptr, IDC_SIZENESW);
-    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 2);
-    wcex.lpszMenuName =nullptr;
-    wcex.lpszClassName = L"GameEngineWindowClass";
-    wcex.hIconSm = nullptr;
+	wcex.style = CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc = WndProc;
+	wcex.cbClsExtra = 0;
+	wcex.cbWndExtra = 0;
+	wcex.hInstance = _hInst;
+	wcex.hIcon = nullptr;
+	wcex.hCursor = LoadCursor(nullptr, IDC_SIZENESW);
+	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 2);
+	wcex.lpszMenuName = nullptr;
+	wcex.lpszClassName ="GameEngineWindowClass";
+	wcex.hIconSm = nullptr;
 
-    RegisterClassExW(&wcex);
-    hWnd_ = CreateWindowW(L"GameEngineWindowClass", L"packman", WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, _hInst, nullptr);
+	RegisterClassExA(&wcex);
+}
+void GameEngineWindow::CreateGameWindow(HINSTANCE _hInst, const std::string& _Title)
+{
+	if (nullptr != hInst_)
+	{
+		MsgBoxAssert("윈도우를 2번 띄우려고 했습니다.");
+		return;
+	}
+	Title_ = _Title;
+	hInst_ = _hInst;
+	RegClass(hInst_);
+	hWnd_ = CreateWindowExA(0L,"GameEngineWindowClass", "packman", WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInst_, nullptr);
 
-    if (!hWnd_)
-    {
-        return;
-    }
-
-   
+	
 }
 
 void GameEngineWindow::ShowGameWindow()
 {
-    ShowWindow(hWnd_, SW_SHOW);
-    UpdateWindow(hWnd_);
+	if (!hWnd_)
+	{
+		MsgBoxAssert("메인 윈도우가 만들어지지 않았습니다 화면에 출력할수 없습니다.");
+		return;
+	}
+	ShowWindow(hWnd_, SW_SHOW);
+	UpdateWindow(hWnd_);
 }
 
