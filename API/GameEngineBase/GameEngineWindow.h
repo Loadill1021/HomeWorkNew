@@ -23,11 +23,19 @@ public:
 public:
 	void CreateGameWindow(HINSTANCE _hInst, const std::string& _Title);
 	void ShowGameWindow();
+	void MessageLoop(void(*_LoopFunction)());
+	void Off();
+	static inline HDC GETDC() 
+	{
+		return Inst_->HDC_;
+	}
 protected:
 
 private:
+	bool WindowOn_;
 	HINSTANCE hInst_;
 	HWND hWnd_;
+	HDC HDC_;//어느 윈도우에 그릴수있는 권한
 	std::string Title_;
 	// constrcuter destructer
 	GameEngineWindow();

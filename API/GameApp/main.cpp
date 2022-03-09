@@ -2,6 +2,10 @@
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEngineBase/GameEngineWindow.h>
 //exe∆ƒ¿œ
+void GameLoop()
+{
+    Rectangle(GameEngineWindow::GETDC(), 100, 100, 200, 200);
+}
 int __stdcall WinMain(_In_ HINSTANCE hInstance,
     _In_opt_ HINSTANCE hPrevInstance,
     _In_ LPSTR    lpCmdLine,
@@ -10,10 +14,7 @@ int __stdcall WinMain(_In_ HINSTANCE hInstance,
     GameEngineWindow::GetInst().CreateGameWindow(hInstance,"GameWindow");
     GameEngineDebug::LeakCheckOn();
     GameEngineWindow::GetInst().ShowGameWindow();
-    while (true)
-    {
-
-    }
-    //GameEngineWindow::GetInst().Loop();
+    GameEngineWindow::GetInst().MessageLoop(GameLoop);
     GameEngineWindow::Destroy();
+    GameEngineDebug::LeakCheckOn();
 }
