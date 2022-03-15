@@ -15,7 +15,6 @@ public:
 	GameEngineNameObject& operator=(const GameEngineNameObject& _Other) = delete;
 	GameEngineNameObject& operator=(GameEngineNameObject&& _Other) noexcept = delete;
 
-protected:
 	//const 원본값을 변경하지 않겠다
 	//인자값으로 넘길때 복사를 하지않겠다.
 	inline void SetName(const std::string& _Name)
@@ -37,6 +36,7 @@ protected:
 	{
 		return Name_.c_str();
 	}
+protected:
 
 private:
 	std::string Name_;

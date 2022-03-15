@@ -8,6 +8,7 @@
 //실행은 마소가 알아서 해준다.
 
 float XMOVE=0.00000001f;
+GameEngineWindow* GameEngineWindow::Inst_=new GameEngineWindow();
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -37,7 +38,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return DefWindowProc(hWnd, message, wParam, lParam);
 }
-GameEngineWindow* GameEngineWindow::Inst_=new GameEngineWindow();
 GameEngineWindow::GameEngineWindow()
     :hInst_(nullptr)
     , hWnd_(nullptr)

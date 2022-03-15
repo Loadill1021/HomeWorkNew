@@ -1,5 +1,6 @@
 #pragma once
 #include <GameEngine/GameEngineLevel.h>
+#include "GameEngine/GameEngine.h"
 // 설명 :
 // 타이틀 로고 보여주고 키 누르면 플레이 레벨로 감
 // 타이트 로고: 화면에서 등장(Actor)
@@ -17,7 +18,7 @@ public:
 	TitleLevel& operator=(TitleLevel&& _Other) noexcept = delete;
 protected:
 	void Loading()override;
-	
+	void Update()override;
 private:
 
 };

@@ -15,7 +15,7 @@ public:
 	EndingLevel& operator=(EndingLevel&& _Other) noexcept = delete;
 protected:
 	void Loading()override;
-
+	void Update()override;
 private:
 
 };
