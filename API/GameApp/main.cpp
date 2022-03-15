@@ -1,12 +1,18 @@
 #include <Windows.h>
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEngineBase/GameEngineWindow.h>
-
+#include <GameEngineContents/PoketMonster.h>
+PoketMonster MyGame;
+void GameInit()
+{
+    //  텍스처를 로딩하고 준비를하고
+    //  오브젝트를 미리 만들어놓고
+    MyGame.GameInit();
+}
 void GameLoop()
 {
-    // 이안에서 이제 게임을 만들건
-    // 메신저를 만든걸
-    // 뭘 만들건 사용자의 몫
+    MyGame.GameLoop();
+    // 게임이 실행된다.
     Rectangle(GameEngineWindow::GETDC(), 100, 100, 200, 200);
     int a = 0;
 }
@@ -18,6 +24,7 @@ int __stdcall WinMain(_In_ HINSTANCE hInstance,//실행 된 프로세스의 시작주소
     GameEngineDebug::LeakCheckOn();
     GameEngineWindow::GetInst().CreateGameWindow(hInstance,"PoketMonster");
     GameEngineWindow::GetInst().ShowGameWindow();
-    GameEngineWindow::GetInst().MessageLoop(GameLoop);
+    GameEngineWindow::GetInst().MessageLoop(GameInit,GameLoop);
     GameEngineWindow::GetInst().Destroy();
+    MyGame.GameEnd();
 }

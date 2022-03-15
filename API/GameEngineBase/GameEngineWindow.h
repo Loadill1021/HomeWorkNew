@@ -29,7 +29,7 @@ public:
 	void CreateGameWindow(HINSTANCE _hInst,const std::string _Title);
 	//만드는 것과 띄우는 것은 다른 개념
 	void ShowGameWindow();
-	void MessageLoop(void(*_LoopFunction)());
+	void MessageLoop(void(*_InitFunction)(),void(*_LoopFunction)());
 	void Off();
 protected:
 

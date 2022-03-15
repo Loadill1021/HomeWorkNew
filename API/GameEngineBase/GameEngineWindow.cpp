@@ -128,12 +128,20 @@ void GameEngineWindow::ShowGameWindow()
 }
 
 //메세지를 기다리면서 윈도우를 유지
-void GameEngineWindow::MessageLoop(void(*_LoopFunction)())
+void GameEngineWindow::MessageLoop(void(*_InitFunction)(),void(*_LoopFunction)())
 {
+    //  윈도우는 다 준비되었다.
+    //  루프를 돌기전에 
+    //  뭔가 준비할게 있다면 준비함수를 실행해라
+    if (nullptr == _InitFunction)
+    {
+        return;
+    }
     MSG msg;
 
     if (nullptr == _LoopFunction)
     {
+        MsgBoxAssert("게임이 아직 만들어지지않았습니다.");
         return;
     }
 
@@ -149,6 +157,10 @@ void GameEngineWindow::MessageLoop(void(*_LoopFunction)())
         }
         //여기서 무슨 게임을 돌릴까요?
         //나머지 우리 게임이 돌아간다.
+        if (nullptr == _LoopFunction)
+        {
+            continue;
+        }
         _LoopFunction();
     }
 
