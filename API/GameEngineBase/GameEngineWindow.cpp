@@ -169,3 +169,21 @@ void GameEngineWindow::MessageLoop(void(*_InitFunction)(),void(*_LoopFunction)()
             
     }*/
 }
+void GameEngineWindow::SetWindowScaleAndPosition(float4 _Pos, float4 _Scale)
+{
+    //800 600을 하면 메뉴바를 추가해서 잡아준다.회색창이 800 600이 되는게 아님
+    //원점부터 
+    //왼쪽 위점 아래쪽 위점을 담는 구조체
+    //Rect
+    RECT Rc = { _Pos.ix(),_Pos.iy(),_Pos.ix()+_Scale.ix(),_Pos.iy()+_Scale.iy()};
+    //메뉴바 고려해서 그에 알맞은 크기를 뱉어준다.
+    AdjustWindowRect(&Rc, WS_OVERLAPPEDWINDOW, FALSE);
+    Rc.left;//-8
+    Rc.top;//-31
+    Rc.right;//1288
+    Rc.bottom;//728
+    Scale_ = _Scale;
+    //x,y x,y
+    //SWP_NOZORDER 크기가 변경되었을때 앞뒤로 가지않는다? 0을 넣어줘도 된다.
+    SetWindowPos(hWnd_, nullptr,Rc.left,Rc.top,Rc.left+Rc.right ,Rc.top+Rc.bottom , SWP_NOZORDER);
+}

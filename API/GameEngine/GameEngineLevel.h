@@ -46,8 +46,8 @@ protected:
 		//엑터가 몇개가 될지 알 수 없으므로
 		ActorType* NewActor = new ActorType();
 		NewActor->SetName(_Name);
-		std::list<GameEngineActor*>&Group=AllActor_[_Order];
-		Group.push_back(NewActor);
+		//std::list<GameEngineActor*>&Group=AllActor_[_Order];
+		//Group.push_back(NewActor);
 		//맵을 사용하는 일반적인 방법 key로 찾아서 만일 없다면
 
 		//_Order 액터들이 돌아가는 순서를 의미하게 된다.
@@ -57,13 +57,13 @@ protected:
 		//std::map<int, std::list<GameEngineActor*>>::iterator FindGroup =
 		//	AllActor_.find(_Order);
 
-		//if (FindGroup == AllActor_.end)
-		//{
-		//	AllActor_.insert(std::make_pair(_Order, std::list<GameEngineActor*>()));
-		//	//이게 좀더 빠른데 눈꼽만큼차이
-		//	AllActor_.insert(std::map<int, std::list<GameEngineActor*>>::value_type(_Order, std::list<GameEngineActor*>()));
-		//}
-		//AllActor_[_Order]
+		if (FindGroup == AllActor_.end)
+		{
+			AllActor_.insert(std::make_pair(_Order, std::list<GameEngineActor*>()));
+			//이게 좀더 빠른데 눈꼽만큼차이
+			AllActor_.insert(std::map<int, std::list<GameEngineActor*>>::value_type(_Order, std::list<GameEngineActor*>()));
+		}
+		AllActor_[_Order]
 		return nullptr;
 	}
 private:

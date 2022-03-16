@@ -32,9 +32,11 @@ public:
 	template<typename GameType>
 	static void Start()
 	{
+		//메모리 릭을 체크
 		GameEngineDebug::LeakCheckOn();
-		
+		//어떤 게임의 타입이 실행되는지 알지 못하니까 템플릿
 		GameType UserGame;
+		//
 		UserContents_=&UserGame;
 
 		
@@ -72,7 +74,11 @@ private:
 	static GameEngineLevel* CurrentLevel_;
 	static GameEngineLevel* NextLevel_;
 	static GameEngine* UserContents_;
+	//static이 된 이유
+	//static void Start()함수에서 실행하기 위해서
+	//윈도우를 만든다.
 	static void WindowCreate();
+	//엔진이 시작되면 초기화할것들
 	static void EngineInit();
 	static void EngineLoop();
 	static void EngineEnd();

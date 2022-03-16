@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <string>
+#include "GameEngineMath.h"
 // 설명 :
 //singletone
 class GameEngineWindow
@@ -30,15 +31,19 @@ public:
 	//만드는 것과 띄우는 것은 다른 개념
 	void ShowGameWindow();
 	void MessageLoop(void(*_InitFunction)(),void(*_LoopFunction)());
+	//이 위치에 이 크기로 세팅해라
+	void SetWindowScaleAndPosition(float4 _Pos, float4 _Size);
 	void Off();
 protected:
 
 private:
-	bool WindowOn_;
 	std::string Title_;
+	bool WindowOn_;
 	HINSTANCE hInst_;
 	HWND hWnd_;
 	HDC HDC_;//어느 윈도우에 그릴수 있는 권한
+	//윈도우의 크기
+	float4 Scale_;
 	// constrcuter destructer
 	GameEngineWindow();
 	~GameEngineWindow();

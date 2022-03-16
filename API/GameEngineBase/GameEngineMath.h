@@ -30,5 +30,22 @@ public:
 	float y;
 	float z;
 	float w;
-
+public:
+	//float을 int로 형변환
+	int ix()
+	{
+		return static_cast<int>(x);
+	}
+	int iy()
+	{
+		return static_cast<int>(y);
+	}
+	int iz()
+	{
+		return static_cast<int>(z);
+	}
+	int iw()
+	{
+		return static_cast<int>(w);
+	}
 };
