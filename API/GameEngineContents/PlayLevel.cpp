@@ -15,3 +15,12 @@ void PlayLevel::Update()
 {
 
 }
+void PlayLevel::SceneChangeStart()
+{
+	int a = 0;
+}
+
+void PlayLevel::SceneChangeEnd()
+{
+	int a = 0;
+}

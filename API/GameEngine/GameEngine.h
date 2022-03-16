@@ -57,7 +57,6 @@ public:
 	//헤더에 구현하지 않는 이유
 	//헤더를 보고 구현을 고칠수 있어서
 	void ChangeLevel(const std::string& _Name);
-
 protected:
 	template<typename LevelType>
 	void CreateLevel(const std::string& _Name)

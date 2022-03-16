@@ -133,9 +133,9 @@ void GameEngineWindow::MessageLoop(void(*_InitFunction)(),void(*_LoopFunction)()
     //  윈도우는 다 준비되었다.
     //  루프를 돌기전에 
     //  뭔가 준비할게 있다면 준비함수를 실행해라
-    if (nullptr == _InitFunction)
+    if (nullptr != _InitFunction)
     {
-        return;
+        _InitFunction();
     }
     MSG msg;
 

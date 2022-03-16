@@ -29,7 +29,7 @@ void GameEngine::GameEnd()
 }
 void GameEngine::WindowCreate()
 {
-    GameEngineWindow::GetInst().CreateGameWindow(nullptr, "PoketMonster");
+    GameEngineWindow::GetInst().CreateGameWindow(nullptr, "GameWindow");
     GameEngineWindow::GetInst().ShowGameWindow();
     GameEngineWindow::GetInst().MessageLoop(EngineInit, EngineLoop);
 }
@@ -40,11 +40,25 @@ void GameEngine::EngineInit()
 void GameEngine::EngineLoop()
 {
     //엔진 수준에서 매 프레임마다 체크하고 싶은거
+    
     UserContents_->GameLoop();
+
+    // 시점함수라고 하는데
+    // 어느시점의 흐름 레벨의 흐름(장면의 전환)
+    // 레벨은 최초 만들어질때 로딩이라는 함수를 실행하고
+    // 그다음에 만약 자신이 Current레벨이라면 업데이트를 실행하고
     if (nullptr != NextLevel_)
     {
+        if (nullptr != CurrentLevel_)
+        {
+            CurrentLevel_->SceneChangeEnd();
+        }
+        //화면이 바꼈다.
         CurrentLevel_ = NextLevel_;
-        NextLevel_ = nullptr;
+        if (nullptr != NextLevel_)
+        {
+            CurrentLevel_->SceneChangeStart();
+        }
     }
     if (nullptr == CurrentLevel_)
     {
