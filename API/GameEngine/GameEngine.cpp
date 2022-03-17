@@ -6,6 +6,8 @@ std::map<std::string, GameEngineLevel*>GameEngine::AllLevel_;
 GameEngine* GameEngine::UserContents_=nullptr;
 //현재 레벨을 알기 위해서
 GameEngineLevel* GameEngine::CurrentLevel_=nullptr;
+//이유: 
+GameEngineLevel* GameEngine::NextLevel_=nullptr;
 GameEngine::GameEngine() 
 {
 }
@@ -53,10 +55,37 @@ void GameEngine::EngineInit()
 }
 void GameEngine::EngineLoop()
 {
+	//엔진 수준의 루프
 	UserContents_->GameLoop();
+	if (nullptr!=NextLevel_)
+	{
+		CurrentLevel_ = NextLevel_;
+	}
 	if (nullptr==CurrentLevel_)
 	{
 		MsgBoxAssert("Level is nullptr=>GameEngine Loop Error");
+		return;
 	}
+	int a = 0;
+	//레벨수준의 루프
+	//시간 제한이 있는 게임이라면 매프레임마다 시간을 체크해야하는데 그런일을 
+	//
+	//한화면을 만드는 프레임이라고 불리는 곳
 	CurrentLevel_->Update();
+}
+void GameEngine::ChangeLevel(const std::string& _Name)
+{
+	std::map<std::string, GameEngineLevel*>::iterator FindIter = AllLevel_.find(_Name);
+
+	// 레벨을 찾지 못했다면
+	// 용납할수 없는 오류
+	// 없는 레벨로 바꾸려고 해서
+	if (FindIter == AllLevel_.end())
+	{
+		MsgBoxAssert("Level Find Error");
+		return;
+	}
+	NextLevel_ = FindIter->second;
+	//현재 레벨을 만들어야한다.
+	//들어갈때 레벨이 나올때 레벨이 바뀌어서 혼란을 줄수있어서
 }
