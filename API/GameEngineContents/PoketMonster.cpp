@@ -14,7 +14,7 @@ PoketMonster::~PoketMonster()
 void PoketMonster::GameInit()
 {
 	CreateLevel<TitleLevel>("Title");
-	CreateLevel<PlayLevel>("Player");
+	CreateLevel<PlayLevel>("Play");
 	CreateLevel<EndingLevel>("Ending");
 
 }
