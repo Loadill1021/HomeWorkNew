@@ -24,8 +24,10 @@ public:
 		return nullptr;
 	}
 protected:
-	
 	virtual void Loading() = 0;
+
+	//레벨 수준의 업데이트
+	virtual void Update() = 0;
 private:
 };
 

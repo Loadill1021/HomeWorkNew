@@ -2,7 +2,10 @@
 #include "GameEngineBase/GameEngineWindow.h"
 #include "GameEngineLevel.h"
 std::map<std::string, GameEngineLevel*>GameEngine::AllLevel_;
+//게임 엔진 입장에서 유저가 무슨 게임을 만들지 몰라서 
 GameEngine* GameEngine::UserContents_=nullptr;
+//현재 레벨을 알기 위해서
+GameEngineLevel* GameEngine::CurrentLevel_=nullptr;
 GameEngine::GameEngine() 
 {
 }
@@ -51,4 +54,9 @@ void GameEngine::EngineInit()
 void GameEngine::EngineLoop()
 {
 	UserContents_->GameLoop();
+	if (nullptr==CurrentLevel_)
+	{
+		MsgBoxAssert("Level is nullptr=>GameEngine Loop Error");
+	}
+	CurrentLevel_->Update();
 }
