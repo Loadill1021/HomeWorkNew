@@ -1,6 +1,6 @@
 #pragma once
 
-// 설명 :
+// 설명 :우리 엔진에서 쓰는 수학 관련된 모든 기능들
 class GameEngineMath
 {
 public:
@@ -20,7 +20,7 @@ private:
 
 };
 
-class float4
+class float4//당연히 엑터로 들어가야한다.
 {
 public:
 	float x;//2D X좌표

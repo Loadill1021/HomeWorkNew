@@ -57,9 +57,19 @@ void GameEngine::EngineLoop()
 {
 	//엔진 수준의 루프
 	UserContents_->GameLoop();
+
+	//한번의 프레임을 돌기전에 
 	if (nullptr!=NextLevel_)
 	{
+		if (nullptr != CurrentLevel_)
+		{
+			CurrentLevel_->SceneChangeEnd();
+		}
 		CurrentLevel_ = NextLevel_;
+		if (nullptr != CurrentLevel_)
+		{
+			CurrentLevel_->SceneChangeStart();
+		}
 	}
 	if (nullptr==CurrentLevel_)
 	{
