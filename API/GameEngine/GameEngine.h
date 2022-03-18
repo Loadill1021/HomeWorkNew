@@ -33,6 +33,7 @@ public:
 		UserContents_ = &UserGame;
 		WindowCreate();
 		//UserContents_->GameInit();
+		//UserContents_->GameInit();
 		//UserContents_->GameLoop();
 		EngineEnd();
 	}

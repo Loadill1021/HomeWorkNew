@@ -11,7 +11,9 @@ TitleLogo::~TitleLogo()
 
 void TitleLogo::Start()
 {
-
+	//화면중앙에 오게
+	SetPosition(GameEngineWindow::GetScale().Half());
+	SetScale({ 500,500 });
 }
 void TitleLogo::Update()
 {
@@ -19,5 +21,5 @@ void TitleLogo::Update()
 }
 void TitleLogo::Render()
 {
-	Rectangle(GameEngineWindow::GetHDC(), 100, 100, 500, 500);
+	DebugRectRender();
 }

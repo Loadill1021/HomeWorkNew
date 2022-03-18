@@ -41,11 +41,15 @@ protected:
 		//랜더링 방식때문에 이걸 만든것
 		
 		//몇개가 생길지 모르므로 동적할당 하는 수밖에없다.
+
+		//생성자에서도 가능은 한데 상속상태일때라 생성자에 전부 이름을 다 넣어줘야한다.
 		ActorType* NewActor=new ActorType();
+		
 		NewActor->SetName(_Name);
 		//너는 내가 만들었어.
 		NewActor->SetLevel(this);
-		
+		GameEngineActor* StartActor = NewActor;
+		StartActor->Start();
 		//_Order 액터들이 돌아가는 순서를 의미하게 된다.
 		//가장 먼저 행동해야할 애들을 가장 작은숫자로 넣어야한다.
 		//map은 연관 컨테이너

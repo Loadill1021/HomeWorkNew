@@ -32,6 +32,9 @@
     <ClInclude Include="EvolutionLevel.h">
       <Filter>etc</Filter>
     </ClInclude>
+    <ClInclude Include="Product.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PoketMonster.cpp" />
@@ -64,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="EvolutionLevel.cpp">
       <Filter>etc</Filter>
+    </ClCompile>
+    <ClCompile Include="Product.cpp">
+      <Filter>Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

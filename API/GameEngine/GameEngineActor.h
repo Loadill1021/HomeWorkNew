@@ -4,6 +4,7 @@
 // 설명 :
 // 상속구조의 안좋은점
 
+
 class GameEngineLevel;
 class GameEngineActor:public GameEngineNameObject
 {
@@ -21,7 +22,24 @@ public:
 	GameEngineActor(GameEngineActor&& _Other) noexcept = delete;
 	GameEngineActor& operator=(const GameEngineActor& _Other) = delete;
 	GameEngineActor& operator=(GameEngineActor&& _Other) noexcept = delete;
-
+	
+	inline void SetPosition(float4 _Value)
+	{
+		Position_ = _Value;
+	}
+	inline float4 GetPostion()
+	{
+		return Position_;
+	}
+	inline void SetScale(float4 _Value)
+	{
+		Scale_ = _Value;
+	}
+	inline float4 GetScale()
+	{
+		return Scale_;
+	}
+	
 protected:
 	//시점함수 
 	//시작할때 뭔가를 하고 싶은데 만들어지면 생성자에서 절대로 못할 부분들을 처리한다.
@@ -29,6 +47,7 @@ protected:
 	//지속적으로 게임이 실행될때 호출된다.
 	virtual void Update(){};
 	virtual void Render(){};
+	void DebugRectRender();
 private:
 	//왜 private를 해줘야하나 실수방지
 	//자기를 만든 레벨을 알아야합니다.
@@ -42,5 +61,6 @@ private:
 	{
 		Level_ = _Level;
 	}
+	
 };
 

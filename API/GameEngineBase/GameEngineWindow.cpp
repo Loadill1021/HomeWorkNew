@@ -116,3 +116,17 @@ void GameEngineWindow::MessageLoop(void(*_InitFunction)(), void(*_LoopFunction)(
         _LoopFunction();
     }
 }
+
+void GameEngineWindow::SetWindowScaleAndPosition(float4 _Pos, float4 _Scale)
+{
+    //Left x
+    //Top  y
+    //Right x
+    //Bottom y
+    //1280 720
+    //내가 원하는 위치에 원하는 크기로 윈도우를 그리고싶다.
+    RECT Rc={0,0,_Scale.ix(),_Scale.iy()};
+    AdjustWindowRect(&Rc, WS_OVERLAPPEDWINDOW, 0);
+    Scale_ = _Scale;
+    SetWindowPos(hWnd_, nullptr, _Pos.ix(), _Pos.iy(),Rc.right-Rc.left ,Rc.bottom-Rc.top, SWP_NOOWNERZORDER);
+}

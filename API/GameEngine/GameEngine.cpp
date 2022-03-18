@@ -55,6 +55,7 @@ void GameEngine::EngineInit()
 }
 void GameEngine::EngineLoop()
 {
+	//여기로 다시 돌아옴 끝나기전까지
 	//엔진 수준의 루프
 	UserContents_->GameLoop();
 
