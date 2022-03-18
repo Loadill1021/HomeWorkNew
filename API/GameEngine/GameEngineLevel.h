@@ -43,29 +43,36 @@ protected:
 		//몇개가 생길지 모르므로 동적할당 하는 수밖에없다.
 		ActorType* NewActor=new ActorType();
 		NewActor->SetName(_Name);
-
-		std::map<int, std::list<GameEngineActor*>>::iterator FindGroup =
-			AllActor_.find(_Order);
-
-		if (FindGroup == AllActor_.end())
-		{
-			//찾지 못햇다면
-			// 액터를 만들려면 2단계
-			//1.그룹을 만든다
-			//2.액터를 만든다
-			//안좋은 이유?
-			AllActor_.insert(std::make_pair)
-		}
-
-
+		//너는 내가 만들었어.
+		NewActor->SetLevel(this);
+		
 		//_Order 액터들이 돌아가는 순서를 의미하게 된다.
 		//가장 먼저 행동해야할 애들을 가장 작은숫자로 넣어야한다.
 		//map은 연관 컨테이너
 		//나는 플레이어가 가장 먼저 업데이트 하게하고싶어.
 		// insert와 find를 동시에 하게 됩니다.
+
+		std::list<GameEngineActor*>&Group=AllActor_[_Order];
+		//일부러 이렇게 받으심
+		Group.push_back(NewActor);
 		
-		AllActor_[_Order];
+		
 		//0번 그룹이 있고 1번 그룹이 있다. 0번 그룹이 먼저 업데이트되어야한다.
+		//std::map<int, std::list<GameEngineActor*>>::iterator FindGroup =
+		//	AllActor_.find(_Order);
+		//if (FindGroup == AllActor_.end())
+		//{
+		//	//찾지 못햇다면
+		//	// 액터를 만들려면 2단계
+		//	//1.그룹을 만든다
+		//	//2.액터를 만든다
+		//	//안좋은 이유?
+		//	AllActor_.insert(std::map<int, std::list<GameEngineActor*>());
+		//	//AllActor_.insert(std::map<int, std::list<GameEngineActor*>());
+		//}
+
+
+		
 
 		return nullptr;
 	}
@@ -86,4 +93,8 @@ private:
 	//이름으로 찾는건 최악의 수다.
 	//왜 맵에 리스트를 사용햇나?
 	//랜더링순서때문에
+	//유저들이 사용하지 못하는거
+	void ActorUpdate();
+	void ActorReder();
+public:
 };

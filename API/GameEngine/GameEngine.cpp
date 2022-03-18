@@ -82,6 +82,8 @@ void GameEngine::EngineLoop()
 	//
 	//한화면을 만드는 프레임이라고 불리는 곳
 	CurrentLevel_->Update();
+	CurrentLevel_->ActorUpdate();
+	CurrentLevel_->ActorReder();
 }
 void GameEngine::ChangeLevel(const std::string& _Name)
 {

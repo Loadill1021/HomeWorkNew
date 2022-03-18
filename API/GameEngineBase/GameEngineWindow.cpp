@@ -78,7 +78,7 @@ void GameEngineWindow::CreateGameWindow(HINSTANCE _hInst, const std::string& _Ti
     RegClass(_hInst);
     hWnd_ = CreateWindowExA(0L, "GameEngineWindowClass", Title_.c_str(), WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInst_, nullptr);
-    HDC_ = GetDC(hWnd_);
+    HDC_ = GetDC();
     if (!hWnd_)
     {
         return;

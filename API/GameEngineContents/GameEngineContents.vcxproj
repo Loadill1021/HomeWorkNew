@@ -114,6 +114,9 @@
     <ProjectReference Include="..\GameEngineBase\GameEngineBase.vcxproj">
       <Project>{f21438f4-cb39-46a9-9deb-b253339d7f40}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\GameEngine\GameEngine.vcxproj">
+      <Project>{a6125224-66e3-49d3-89ed-05e059aff34d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

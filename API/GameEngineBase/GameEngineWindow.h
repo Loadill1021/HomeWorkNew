@@ -20,6 +20,10 @@ public:
 			Inst_ = nullptr;
 		}
 	}
+	static inline HDC GetDC()
+	{
+		return Inst_->HDC_;
+	}
 	 void Off();
 protected:
 public:

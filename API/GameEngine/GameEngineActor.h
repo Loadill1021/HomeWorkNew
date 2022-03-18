@@ -2,12 +2,16 @@
 #include <GameEngineBase/GameEngineNameObject.h>
 #include <GameEngineBase/GameEngineMath.h>
 // 설명 :
-class GameEngineActor
+// 상속구조의 안좋은점
+
+class GameEngineLevel;
+class GameEngineActor:public GameEngineNameObject
 {
+	friend GameEngineLevel;
 private:
-	float4 Position_;
-	float4 Scale_;
+	
 public:
+	
 	// constrcuter destructer
 	GameEngineActor();
 	virtual ~GameEngineActor();
@@ -26,6 +30,17 @@ protected:
 	virtual void Update(){};
 	virtual void Render(){};
 private:
-	//GameEngineLevel* Level;
+	//왜 private를 해줘야하나 실수방지
+	//자기를 만든 레벨을 알아야합니다.
+	//엑터가 레벨이 배치 안되면 안된다
+	//무조건 레벨이 셋팅된 상태에서 동작해야한다.
+	//protected는 왜 안되나 자식에서 Level_을 삭제할수잇다.
+	GameEngineLevel* Level_;
+	float4 Position_;
+	float4 Scale_;
+	inline void SetLevel(GameEngineLevel* _Level)
+	{
+		Level_ = _Level;
+	}
 };
 
