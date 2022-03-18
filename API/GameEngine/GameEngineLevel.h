@@ -84,6 +84,8 @@ protected:
 	* CreateTitleLogoUI
 	* CreateMarioUI
 	*/
+	
+	
 private:
 
 	std::map<int, std::list<GameEngineActor*>>AllActor_;

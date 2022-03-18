@@ -19,5 +19,5 @@ void TitleLogo::Update()
 }
 void TitleLogo::Render()
 {
-	Rectangle(GameEngineWindow::GetDC(), 100, 100, 200, 200);
+	Rectangle(GameEngineWindow::GetHDC(), 100, 100, 500, 500);
 }
