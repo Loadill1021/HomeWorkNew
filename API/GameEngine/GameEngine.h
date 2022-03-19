@@ -74,6 +74,7 @@ private:
 	static GameEngineLevel* CurrentLevel_;
 	static GameEngineLevel* NextLevel_;
 
+	static GameEngineImage* WindowMainImage_;
 	static GameEngineImage* BackBufferImage_;
 	//클래스로 표현하기 위해서
 	static void WindowCreate();
