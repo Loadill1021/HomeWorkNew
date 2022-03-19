@@ -1,5 +1,6 @@
 #include "GameEngineActor.h"
 #include <GameEngineBase/GameEngineWindow.h>
+#include "GameEngine.h"
 GameEngineActor::GameEngineActor() 
 	:Level_(nullptr)
 {
@@ -12,7 +13,7 @@ void GameEngineActor::DebugRectRender()
 {
 	GameEngineRect DebugRect(Position_,Scale_);
 
-	SetPixel(GameEngineWindow::GetHDC(), 100, 100, RGB(255, 0, 0));
+	//SetPixel(GameEngineWindow::GetHDC(), 100, 100, RGB(255, 0, 0));
 	//Rectangle(GameEngineWindow::GetHDC(), 100, 100, 500, 500);
 	/*Rectangle(
 		GameEngineWindow::GetHDC(),
@@ -20,6 +21,12 @@ void GameEngineActor::DebugRectRender()
 		DebugRect.CenterTop(),
 		DebugRect.CenterRight(),
 		DebugRect.CenterBot());*/
+		Rectangle(
+			GameEngine::BackBufferDC(),
+			DebugRect.CenterLeft(),
+			DebugRect.CenterTop(),
+			DebugRect.CenterRight(),
+			DebugRect.CenterBot());
 }
 
 

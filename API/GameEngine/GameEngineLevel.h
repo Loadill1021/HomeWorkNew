@@ -30,9 +30,9 @@ protected:
 	//ex)타이틀 레벨에서 플레이 레벨로 바뀔때 무언가 실행되어야 할 함수
 	// xxx레벨=>xxx레벨로 이전할때 현재 레벨이 실행하는 함수
 	// Current레벨=>Next로 이전할때 현재 레벨이 실행하는 함수
-	virtual void SceneChangeStart(){}
+	virtual void LevelChangeStart(){}
 	//Current레벨=>Next로 이전할때 이전레벨이 실행하는 함수
-	virtual void SceneChangeEnd(){}
+	virtual void LevelChangeEnd(){}
 protected:
 	//자식들은 맘대로써라
 	template<typename ActorType>

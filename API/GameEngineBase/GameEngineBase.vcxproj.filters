@@ -13,6 +13,9 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{9dc73da0-acf4-4075-9362-74f13dab6060}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{07456675-8f7f-4776-a004-119eb28fa9f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngineWindow.h">

@@ -4,6 +4,7 @@
 #include <GameEngineBase/GameEngineDebug.h>
 
 // 설명 : 게임엔진이란 게임 그자체
+class GameEngineImage;
 class GameEngineLevel;
 class GameEngine
 {
@@ -18,6 +19,7 @@ public:
 	GameEngine& operator=(const GameEngine& _Other) = delete;
 	GameEngine& operator=(GameEngine&& _Other) noexcept = delete;
 
+	static  HDC BackBufferDC();
 
 	
 	virtual void GameInit()=0;
@@ -68,10 +70,11 @@ private:
 	static std::map<std::string, GameEngineLevel*>AllLevel_;
 	//전역 변수
 	static GameEngine* UserContents_;
-	
 	//static으로 만든 이유?
 	static GameEngineLevel* CurrentLevel_;
 	static GameEngineLevel* NextLevel_;
+
+	static GameEngineImage* BackBufferImage_;
 	//클래스로 표현하기 위해서
 	static void WindowCreate();
 	static void EngineInit();
