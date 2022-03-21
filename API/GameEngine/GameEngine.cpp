@@ -42,33 +42,16 @@ void GameEngine::WindowCreate()
 	GameEngineWindow::GetInst().ShowGameWindow();
 	GameEngineWindow::GetInst().MessageLoop(EngineInit,EngineLoop);
 }
-void GameEngine::EngineEnd()
-{
-	UserContents_->GameEnd();
-
-	std::map<std::string, GameEngineLevel*>::iterator StartIter = AllLevel_.begin();
-	std::map<std::string, GameEngineLevel*>::iterator EndIter = AllLevel_.end();
-	for (; StartIter != EndIter; ++StartIter)
-	{
-		if (nullptr == StartIter->second)
-		{
-			continue;
-		}
-		delete StartIter->second;
-	}
-	GameEngineImageManager::Destroy();
-	GameEngineWindow::Destroy();
-}
 void GameEngine::EngineInit()
 {
 	//여기서 윈도우의 크기가 결정될 것이므로
 	UserContents_->GameInit();
-	//백버퍼를 만들어 낸다.
+	
 	//이미지를 두개 만들어준다.
-	//
+	//백버퍼를 만들어 낸다.
 	WindowMainImage_ = GameEngineImageManager::GetInst()->Create("WindowMain", GameEngineWindow::GetHDC());
-	//이미지를 그려놓은 데
 	BackBufferImage_ = GameEngineImageManager::GetInst()->Create("BackBuffer",GameEngineWindow::GetScale());
+	//이미지를 그려놓은 데
 }
 void GameEngine::EngineLoop()
 {
@@ -105,6 +88,24 @@ void GameEngine::EngineLoop()
 
 	//윈도우 메인 이미지에 BackBuffer이미지를 복사붙여넣기해라
 	WindowMainImage_->BitCopy(BackBufferImage_);
+}
+void GameEngine::EngineEnd()
+{
+	UserContents_->GameEnd();
+
+	std::map<std::string, GameEngineLevel*>::iterator StartIter = AllLevel_.begin();
+	std::map<std::string, GameEngineLevel*>::iterator EndIter = AllLevel_.end();
+	for (; StartIter != EndIter; ++StartIter)
+	{
+		if (nullptr == StartIter->second)
+		{
+			continue;
+		}
+		delete StartIter->second;
+	}
+	//이미지를 지워준다.
+	GameEngineImageManager::Destroy();
+	GameEngineWindow::Destroy();
 }
 void GameEngine::ChangeLevel(const std::string& _Name)
 {

@@ -17,9 +17,6 @@
     <ClInclude Include="EndingCredit.h">
       <Filter>Ending</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Play</Filter>
-    </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Play</Filter>
     </ClInclude>
@@ -34,6 +31,12 @@
     </ClInclude>
     <ClInclude Include="Product.h">
       <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="BotUI.h">
+      <Filter>Play\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Play\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,9 +56,6 @@
     <ClCompile Include="EndingCredit.cpp">
       <Filter>Ending</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Play</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>Play</Filter>
     </ClCompile>
@@ -70,6 +70,12 @@
     </ClCompile>
     <ClCompile Include="Product.cpp">
       <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="BotUI.cpp">
+      <Filter>Play\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Play\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +93,9 @@
     </Filter>
     <Filter Include="Ending">
       <UniqueIdentifier>{841368e1-99b4-495f-8e4a-4cc6df83aa2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Global">
+      <UniqueIdentifier>{90a37c93-0413-43f3-8b4a-1f7f091286a7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

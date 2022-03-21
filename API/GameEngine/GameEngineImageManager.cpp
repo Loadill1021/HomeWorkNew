@@ -69,5 +69,4 @@ GameEngineImage* GameEngineImageManager::Create(const std::string& _Name, HDC _D
 	//AllRes.insert(std::map<std::string, GameEngineImage*>::value_type(_Name, NewImage));
 	AllRes.insert(std::make_pair(_Name, NewImage));
 	return NewImage;
-	return nullptr;
 }

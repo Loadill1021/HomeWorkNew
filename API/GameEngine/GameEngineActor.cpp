@@ -21,12 +21,20 @@ void GameEngineActor::DebugRectRender()
 		DebugRect.CenterTop(),
 		DebugRect.CenterRight(),
 		DebugRect.CenterBot());*/
-		Rectangle(
+		/*	Rectangle(
+				GameEngine::BackBufferDC(),
+				DebugRect.CenterLeft(),
+				DebugRect.CenterTop(),
+				DebugRect.CenterRight(),
+				DebugRect.CenterBot());*/
+
+	Rectangle(
 			GameEngine::BackBufferDC(),
-			DebugRect.CenterLeft(),
-			DebugRect.CenterTop(),
-			DebugRect.CenterRight(),
-			DebugRect.CenterBot());
+			0,
+			0,
+			100,
+			100);
+
 }
 
 

@@ -25,6 +25,7 @@ GameEngineImage::~GameEngineImage()
 		ImageDC_ = nullptr;
 	}
 }
+//이미 만들어진 DC를 우리 구조에 편입시키는거
 bool GameEngineImage::Create(HDC _DC)
 {
 	ImageDC_ = _DC;
@@ -41,23 +42,30 @@ bool GameEngineImage::Create(float4 _Scale)
 	}
 	// 먼저 비트맵을 만들어
 	// 이미지 크기만함 디시를 만든다.
+
+	//자기가 그려질 비트맵,
+	//먼저 비트맵을 만들어
+	//이미지 크기만한
+	//그다음에 DC를 만든다.
 	BitMap_ = CreateCompatibleBitmap(GameEngineWindow::GetHDC(), _Scale.ix(), _Scale.iy());
-	//비어있지 않는다.
+	//비어있지 않는다. 1에 1짜리 BitMap을 떼어준다.
 	ImageDC_ = CreateCompatibleDC(nullptr);
 
 	if (nullptr == ImageDC_)
 	{
 		MsgBoxAssert("ImageDC에 생성에 실패하였습니다.");
 	}
+	//그이전의 1의1짜리 비트맵을 저장해줌
 	OldBitMap_ = (HBITMAP)SelectObject(ImageDC_, BitMap_);
 	ImageScaleCheck();
 	return true;
 }
+//다른 이미지가 들어와서 복사
 void GameEngineImage::BitCopy(GameEngineImage* _Other)
 {
 	BitCopy(_Other, { 0,0 }, { 0,0 }, _Other->GetScale());
 }
-//다른 이미지가 들어와서
+//다른 이미지가 들어와서 복사(카피할 대상,카피할 위치)
 void GameEngineImage::BitCopy(GameEngineImage* _Other, const float4& _CopyPos, const float4& _OtherPivot, const float4& _OtherPivotScale)
 {
 	//복사 #pragma comment(lib,"msimg32.lib")가 없어도 이 함수는 사용이 가능하다
@@ -77,8 +85,11 @@ void GameEngineImage::BitCopy(GameEngineImage* _Other, const float4& _CopyPos, c
 
 void GameEngineImage::ImageScaleCheck()
 {
+	//DC안에는 언제나 BITMAP이 잇으니까
 	//내부에 박혀있는 BITMAP을 꺼내오는 함수
 	HBITMAP CurrentBitMap = (HBITMAP)GetCurrentObject(ImageDC_,OBJ_BITMAP);
+
+	//
 	GetObject(CurrentBitMap,sizeof(BITMAP),&Info_);
 }
 //class HBITMAP
