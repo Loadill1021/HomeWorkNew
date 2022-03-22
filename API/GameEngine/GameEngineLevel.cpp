@@ -46,7 +46,7 @@ void GameEngineLevel::ActorUpdate()
 		}
 	}
 }
-void GameEngineLevel::ActorReder()
+void GameEngineLevel::ActorRender()
 {
 	std::map<int, std::list<GameEngineActor*>>::iterator GroupStart = AllActor_.begin();
 

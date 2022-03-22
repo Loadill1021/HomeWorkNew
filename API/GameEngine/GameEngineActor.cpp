@@ -1,40 +1,72 @@
 #include "GameEngineActor.h"
+#include "GameEngine/GameEngine.h"
 #include <GameEngineBase/GameEngineWindow.h>
-#include "GameEngine.h"
-GameEngineActor::GameEngineActor() 
-	:Level_(nullptr)
+#include <GameEngine/GameEngineRenderer.h>
+
+GameEngineActor::GameEngineActor()
+	: Level_(nullptr)
 {
+	// delete this;
 }
 
 GameEngineActor::~GameEngineActor()
 {
+	std::list<GameEngineRenderer*>::iterator StartIter = RenderList_.begin();
+	std::list<GameEngineRenderer*>::iterator EndIter = RenderList_.end();
+
+	for (; StartIter != EndIter; ++StartIter)
+	{
+		if (nullptr == (*StartIter))
+		{
+			continue;
+		}
+		delete (*StartIter);
+		(*StartIter) = nullptr;
+	}
 }
+
 void GameEngineActor::DebugRectRender()
 {
-	GameEngineRect DebugRect(Position_,Scale_);
+	// 선생님은 기본적으로 중앙을 기준으로하는걸 좋아합니다.
 
-	//SetPixel(GameEngineWindow::GetHDC(), 100, 100, RGB(255, 0, 0));
-	//Rectangle(GameEngineWindow::GetHDC(), 100, 100, 500, 500);
-	/*Rectangle(
-		GameEngineWindow::GetHDC(),
+	GameEngineRect DebugRect(Position_, Scale_);
+
+
+	Rectangle(
+		GameEngine::BackBufferDC(),
 		DebugRect.CenterLeft(),
 		DebugRect.CenterTop(),
 		DebugRect.CenterRight(),
-		DebugRect.CenterBot());*/
-		/*	Rectangle(
-				GameEngine::BackBufferDC(),
-				DebugRect.CenterLeft(),
-				DebugRect.CenterTop(),
-				DebugRect.CenterRight(),
-				DebugRect.CenterBot());*/
-
-	Rectangle(
-			GameEngine::BackBufferDC(),
-			0,
-			0,
-			100,
-			100);
-
+		DebugRect.CenterBot()
+	);
 }
 
+GameEngineRenderer* GameEngineActor::CreateRenderer(
+	const std::string& _Image,
+	RenderPivot _PivotType /*= RenderPivot::CENTER*/,
+	const float4& _PivotPos /*= { 0,0 }*/
+)
+{
+	GameEngineRenderer* NewRenderer = new GameEngineRenderer();
 
+	NewRenderer->SetActor(this);
+	NewRenderer->SetImage(_Image);
+	NewRenderer->SetPivot(_PivotPos);
+	NewRenderer->SetType(_PivotType);
+
+	RenderList_.push_back(NewRenderer);
+	return NewRenderer;
+
+	return nullptr;
+}
+
+void GameEngineActor::Renderering()
+{
+	StartRenderIter = RenderList_.begin();
+	EndRenderIter = RenderList_.end();
+
+	for (; StartRenderIter != EndRenderIter; ++StartRenderIter)
+	{
+		(*StartRenderIter)->Render();
+	}
+}

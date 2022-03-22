@@ -13,7 +13,7 @@ void TitleLogo::Start()
 {
 	//화면중앙에 오게
 	SetPosition(GameEngineWindow::GetScale().Half());
-	SetScale({ 500,500 });
+	SetScale({ 100, 100 });
 }
 void TitleLogo::Update()
 {

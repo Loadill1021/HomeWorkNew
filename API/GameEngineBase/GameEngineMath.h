@@ -1,9 +1,9 @@
 #pragma once
 
-// 설명 :우리 엔진에서 쓰는 수학 관련된 모든 기능들
+// 설명 :
 class GameEngineMath
 {
-public:
+private:
 	// constrcuter destructer
 	GameEngineMath();
 	~GameEngineMath();
@@ -20,93 +20,126 @@ private:
 
 };
 
-class float4//당연히 엑터로 들어가야한다.
+class float4
 {
 public:
-	float x;//2D X좌표
-	float y;//2D Y좌표
-	float z;//3차원때부터 사용
+	float x;
+	float y;
+	float z;
 	float w;
+
 public:
-	bool IsZero2D()
+	bool IsZero2D() const
 	{
 		return x == 0.0f && y == 0.0f;
 	}
+
 public:
-	int ix()const
+	int ix() const
 	{
 		return static_cast<int>(x);
 	}
-	int iy()const
+
+	int iy() const
 	{
 		return static_cast<int>(y);
 	}
-	int iz()const
+
+	int iz() const
 	{
 		return static_cast<int>(z);
 	}
-	int hix()const
+
+	int iw() const
+	{
+		return static_cast<int>(w);
+	}
+
+	int hix() const
 	{
 		return static_cast<int>(x * 0.5f);
 	}
-	int hiy()const
+
+	int hiy() const
 	{
 		return static_cast<int>(y * 0.5f);
 	}
-	float4 Half()const
+
+	int hiz() const
 	{
-		//
-		return {x * 0.5f,y * 0.5f,z * 0.5f,1.0f };
+		return static_cast<int>(z * 0.5f);
 	}
+
+	float4 Half() const
+	{
+		return { x * 0.5f, y * 0.5f , z * 0.5f, 1.0f };
+	}
+
+	float4 operator-(const float4& _Other) const
+	{
+		return { x - _Other.x, y - _Other.y, z - _Other.z, 1.0f };
+	}
+
+	float4 operator+(const float4& _Other) const
+	{
+		return { x + _Other.x, y + _Other.y, z + _Other.z, 1.0f };
+	}
+
 public:
 	float4()
-		:x(0.0f), y(0.0f), z(0.0f), w(1.0f)
+		: x(0.0f), y(0.0f), z(0.0f), w(1.0f)
 	{
 
 	}
-	float4(float _x,float _y)
-		:x(_x),y(_y),z(0.0f),w(1.0f)
+	float4(float _x, float _y)
+		: x(_x), y(_y), z(0.0f), w(1.0f)
 	{
 
 	}
 	float4(float _x, float _y, float _z)
-		:x(_x),y(_y),z(_z),w(1.0f)
+		: x(_x), y(_y), z(_z), w(1.0f)
 	{
 
 	}
 	float4(float _x, float _y, float _z, float _w)
-		:x(_x),y(_y),z(_z),w(_w)
+		: x(_x), y(_y), z(_z), w(_w)
 	{
 
 	}
+
+
 };
 
 struct GameEngineRect
 {
 public:
-	float4 Pos;//좌표
-	float4 Scale;//크기
+	float4 Pos;
+	float4 Scale;
+
 public:
-	//현재위치의 x-크기의 반의 x좌표
 	int CenterLeft()
 	{
 		return Pos.ix() - Scale.hix();
 	}
+
 	int CenterRight()
 	{
 		return Pos.ix() + Scale.hix();
 	}
+
 	int CenterTop()
 	{
 		return Pos.iy() - Scale.hiy();
 	}
+
 	int CenterBot()
 	{
 		return Pos.iy() + Scale.hiy();
 	}
+
 public:
 	GameEngineRect(float4 _Pos, float4 _Scale)
-		:Pos(_Pos)
+		: Pos(_Pos)
 		, Scale(_Scale)
 	{
 

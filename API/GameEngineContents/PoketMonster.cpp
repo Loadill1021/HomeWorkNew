@@ -19,7 +19,7 @@ void PoketMonster::GameInit()
 	CreateLevel<PlayLevel>("Play");
 	CreateLevel<EndingLevel>("Ending");
 	//시작 레벨을 타이틀레벨로
-	ChangeLevel("Play");
+	ChangeLevel("Title");
 
 	//가독성과 편의성을 위함
 	//ChagneLevel(3);

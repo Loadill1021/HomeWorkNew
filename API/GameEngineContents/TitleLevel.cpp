@@ -14,8 +14,8 @@ TitleLevel::~TitleLevel()
 void TitleLevel::Loading()
 {
 	CreateActor<TitleBackGround>("TitleLogo",0);
-	CreateActor<TitleLogo>("타이틀로고",1);
-	CreateActor<Product>("제작자", 2);
+	CreateActor<TitleLogo>("TitleLogo",1);
+	//CreateActor<Product>("제작자", 2);
 	//백그라운드가 먼저 그려지고 타이틀로고가 그려지길 원한다.
 }
 void TitleLevel::Update()

@@ -11,8 +11,8 @@ TitleBackGround::~TitleBackGround()
 
 void TitleBackGround::Start()
 {
-	SetPosition(GameEngineWindow::GetInst().GetScale().Half());
-	SetScale(GameEngineWindow::GetScale());
+	SetPosition(GameEngineWindow::GetScale().Half());
+	SetScale({ 100, 200 });
 }
 void TitleBackGround::Render()
 {

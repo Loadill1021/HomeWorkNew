@@ -3,13 +3,13 @@
 #include <string>
 #include <GameEngineBase/GameEngineDebug.h>
 
-// 설명 : 게임엔진이란 게임 그자체
+// 게임엔진이란 게임 그자체의 시작점과 끝점 실행중을 담당하는 녀석이다.
+// 설명 :
 class GameEngineImage;
 class GameEngineLevel;
 class GameEngine
 {
 public:
-	// constrcuter destructer
 	GameEngine();
 	~GameEngine();
 
@@ -19,67 +19,73 @@ public:
 	GameEngine& operator=(const GameEngine& _Other) = delete;
 	GameEngine& operator=(GameEngine&& _Other) noexcept = delete;
 
-	static  HDC BackBufferDC();
+	static inline GameEngineImage* BackBufferImage()
+	{
+		return BackBufferImage_;
+	}
 
-	
-	virtual void GameInit()=0;
-	virtual void GameLoop()=0;
-	virtual void GameEnd()=0;
+	static HDC BackBufferDC();
+
+	virtual void GameInit() = 0;
+	virtual void GameLoop() = 0;
+	virtual void GameEnd() = 0;
 
 	template<typename GameType>
 	static void Start()
 	{
 		GameEngineDebug::LeakCheckOn();
+
 		GameType UserGame;
-		//타입을 강제하고 싶어서 업캐스팅
 		UserContents_ = &UserGame;
+
 		WindowCreate();
-		//UserContents_->GameInit();
-		//UserContents_->GameInit();
-		//UserContents_->GameLoop();
 		EngineEnd();
 	}
-	//글로벌 엔진이 없을때가 있나?
+
 	static GameEngine& GlobalEngine()
 	{
-		//엔진을 기동시킨뒤 바로 생성된다.
-		//엔진을 시작하지도 않았는데 엔진을 불러옴
 		if (nullptr == UserContents_)
 		{
-			MsgBoxAssert("GEngine ERROR Engine Is Not Start");
+			MsgBoxAssert("GEngine ERROR Engine Is Not Start ");
 		}
+
 		return *UserContents_;
 	}
-	// 왜 string으로 관리중인가 편해서 
-	// 레벨을 바꿀때
-	// 헤더는 고칠수 있어서
+
 	void ChangeLevel(const std::string& _Name);
+
 protected:
-	//레벨은 무조건 처음에 다 만들어져야한다.
 	template<typename LevelType>
 	void CreateLevel(const std::string& _Name)
 	{
 		LevelType* NewLevel = new LevelType();
 		NewLevel->SetName(_Name);
-		GameEngineLevel* Level = NewLevel;//업캐스팅 GamEngineLevel* =나머지 Level자식들중 하나
+		GameEngineLevel* Level = NewLevel;
 		Level->Loading();
 		AllLevel_.insert(std::make_pair(_Name, NewLevel));
 	}
-	
+
+
 private:
-	static std::map<std::string, GameEngineLevel*>AllLevel_;
-	//전역 변수
-	static GameEngine* UserContents_;
-	//static으로 만든 이유?
+	static std::map<std::string, GameEngineLevel*> AllLevel_;
 	static GameEngineLevel* CurrentLevel_;
 	static GameEngineLevel* NextLevel_;
+	static GameEngine* UserContents_;
 
-	static GameEngineImage* WindowMainImage_;
-	static GameEngineImage* BackBufferImage_;//뒤에 그려지는 이미지
-	//클래스로 표현하기 위해서
+	static GameEngineImage* WindowMainImage_; // 그려지면 화면에 진짜 나오게 되는 이미지
+	static GameEngineImage* BackBufferImage_; // 깜빡임을 해결하려고 버퍼로 사용하는 이미지
+
 	static void WindowCreate();
 	static void EngineInit();
 	static void EngineLoop();
 	static void EngineEnd();
+
+
 };
 
+//class IGameEngineInstance
+//{
+//	virtual void GameInit() = 0;
+//	virtual void GameLoop() = 0;
+//	virtual void GameEnd() = 0;
+//};

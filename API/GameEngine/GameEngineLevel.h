@@ -101,6 +101,6 @@ private:
 	//랜더링순서때문에
 	//유저들이 사용하지 못하는거
 	void ActorUpdate();
-	void ActorReder();
+	void ActorRender();
 public:
 };
